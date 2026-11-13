@@ -144,25 +144,19 @@ Nội dung hiển thị:
 ## 7. Hình ảnh minh chứng
 
 ### Ảnh 1: Mã nguồn chương trình
-
 ![Mã nguồn Node.js](IMAGES/1-code.png)
 
-### Ảnh 2: Chạy Web Server trong Terminal
-
-![Terminal chạy Node.js](IMAGES/2-terminal.png)
+### Ảnh 2: Chạy chương trình trong Terminal
+![Terminal chạy Node.js](IMAGES/2-ketqua.png)
 
 ### Ảnh 3: Kết quả trang chủ
-
 ![Trang chủ](IMAGES/3-trangchu.png)
 
 ### Ảnh 4: Kết quả trang giới thiệu bản thân
-
 ![Trang giới thiệu](IMAGES/4-about.png)
 
 ### Ảnh 5: Kết quả trang lỗi 404
-
 ![Trang lỗi 404](IMAGES/5-404.png)
-
 ## 8. Kết luận
 
 Sau khi thực hiện bài tập, đã hoàn thành các chức năng:
