@@ -1,70 +1,177 @@
-BÀI 3 – BT01: QUẢN LÝ THÔNG TIN SINH VIÊN BẰNG JAVASCRIPT ES6
+# BÀI 3 – BÀI TẬP 02: TẠO WEB SERVER VỚI NODE.JS
 
-1. Thông tin sinh viên
+## 1. Thông tin sinh viên
 
-Họ tên: Đỗ Trung Ngọc Bảo
+- **Họ và tên:** Đỗ Trung Ngọc Bảo
+- **Mã sinh viên:** CD-CNTT18A05
+- **Lớp:** CD-CNTT18A
+- **Môn học:** Node.js
+- **Bài thực hành:** Bài 3 – Bài tập 02
 
-Lớp: CD-CNTT18A
+## 2. Yêu cầu bài tập
 
-Môn học: Node.js
+Sử dụng Node.js và module `http` để xây dựng một Web Server đơn giản với các chức năng:
 
-Bài thực hành: Bài 3 – Bài tập 01
+- Tạo Web Server chạy tại cổng `3000`.
+- Đường dẫn `/` hiển thị lời chào, họ tên và mã sinh viên.
+- Đường dẫn `/about` hiển thị thông tin giới thiệu bản thân.
+- Các đường dẫn không tồn tại trả về trạng thái HTTP `404`.
+- Hiển thị nội dung HTML trên trình duyệt.
 
-2. Yêu cầu bài thực hành
+## 3. Cấu trúc thư mục
 
-Khai báo danh sách gồm 5 sinh viên.
+Dự án được tổ chức như sau:
 
-Mỗi sinh viên có mã, họ tên, tuổi và điểm.
+```text
+NodeJS/
+└── Bai03/
+    └── Bt02/
+        ├── bai02.js
+        ├── Readme.md
+        └── IMAGES/
+            ├── 1-code.png
+            ├── 2-terminal.png
+            ├── 3-trangchu.png
+            ├── 4-about.png
+            └── 5-404.png
+```
 
-Sử dụng class và constructor để biểu diễn sinh viên.
+**Giải thích:**
 
-Sử dụng Arrow Function để lọc sinh viên có điểm từ 5 trở lên.
+- `bai02.js`: File mã nguồn tạo Web Server bằng Node.js.
+- `Readme.md`: File mô tả bài tập và hướng dẫn thực hiện.
+- `IMAGES/`: Thư mục chứa hình ảnh minh chứng.
+- `1-code.png`: Ảnh mã nguồn trong VS Code.
+- `2-terminal.png`: Ảnh chạy chương trình trong Terminal.
+- `3-trangchu.png`: Ảnh kết quả trang chủ.
+- `4-about.png`: Ảnh kết quả trang giới thiệu.
+- `5-404.png`: Ảnh kết quả trang lỗi 404.
 
-Hiển thị danh sách sinh viên đạt yêu cầu bằng console.log().
+## 4. Mô tả chương trình
 
-3. Mô tả chương trình
+Chương trình sử dụng module `http` có sẵn trong Node.js.
 
-class SinhVien: Khai báo lớp sinh viên.
+Các thành phần chính:
 
-constructor(): Khởi tạo thông tin sinh viên.
+- `require("http")`: Khai báo module HTTP.
+- `http.createServer()`: Tạo Web Server.
+- `req.url`: Kiểm tra đường dẫn mà người dùng truy cập.
+- `res.setHeader()`: Thiết lập kiểu nội dung HTML và bảng mã UTF-8.
+- `res.writeHead()`: Thiết lập mã trạng thái HTTP.
+- `res.end()`: Gửi nội dung HTML về trình duyệt.
+- `server.listen(3000)`: Khởi chạy Web Server tại cổng 3000.
 
-filter(): Lọc danh sách sinh viên.
+## 5. Hướng dẫn chạy chương trình
 
-sv => sv.diem >= 5: Điều kiện lọc bằng Arrow Function.
+### Bước 1: Mở thư mục bài tập
 
-forEach(): Duyệt danh sách sinh viên.
+Mở VS Code và truy cập thư mục:
 
-console.log(): Hiển thị kết quả ra Terminal.
+`NodeJS/Bai03/Bt02`
 
-4. Hướng dẫn chạy chương trình
+### Bước 2: Kiểm tra Node.js
 
-Bước 1: Cài đặt Node.js.
+Mở Terminal và nhập:
 
-Bước 2: Mở thư mục Bai03/Bt01 trong Visual Studio Code.
+```powershell
+node -v
+```
 
-Bước 3: Mở Terminal và chạy lệnh:
+Nếu hiển thị phiên bản Node.js thì môi trường đã sẵn sàng.
 
-node bt01.js
+### Bước 3: Chạy Web Server
 
-5. Kết quả chương trình
+Trong Terminal, nhập:
 
-DANH SACH SINH VIEN DAT YEU CAU:
-SV01 - Do Trung Ngoc Bao - Tuoi: 22 - Diem: 8.5
-SV03 - Tran Thi Binh - Tuoi: 21 - Diem: 7
-SV05 - Pham Thi Dung - Tuoi: 20 - Diem: 6.5
+```powershell
+node bai02.js
+```
 
-Kết quả: Có 3 sinh viên đạt yêu cầu.
+### Bước 4: Kiểm tra kết quả
 
-6. Hình ảnh minh chứng
+Khi chương trình chạy thành công, Terminal hiển thị:
 
-Ảnh 1: Mã nguồn chương trình
+```text
+Server dang chay tai http://localhost:3000
+```
 
+Giữ Terminal đang chạy và mở trình duyệt Chrome để kiểm tra.
 
+## 6. Kết quả thực hiện
 
-Ảnh 2: Kết quả chạy chương trình
+### 6.1. Trang chủ
 
+**Đường dẫn:** http://localhost:3000/
 
+Nội dung hiển thị:
 
-7. Mã nguồn bài tập
+- CHAO MUNG DEN VOI WEB SERVER NODE.JS
+- Ho ten: Do Trung Ngoc Bao
+- Ma sinh vien: CD-CNTT18A05
+- Liên kết đến trang giới thiệu bản thân.
 
-Xem Bài 3 – BT01
+**Trạng thái HTTP:** `200 OK`
+
+### 6.2. Trang giới thiệu bản thân
+
+**Đường dẫn:** http://localhost:3000/about
+
+Nội dung hiển thị:
+
+- GIOI THIEU BAN THAN
+- Ho ten: Do Trung Ngoc Bao
+- Ma sinh vien: CD-CNTT18A05
+- Lop: CD-CNTT18A
+- Nganh: Cong nghe thong tin
+- Liên kết quay về trang chủ.
+
+**Trạng thái HTTP:** `200 OK`
+
+### 6.3. Trang lỗi 404
+
+**Đường dẫn:** http://localhost:3000/abc
+
+Nội dung hiển thị:
+
+- 404 - KHONG TIM THAY TRANG
+- Duong dan khong ton tai.
+- Liên kết quay về trang chủ.
+
+**Trạng thái HTTP:** `404 Not Found`
+
+Đường dẫn `/abc` không được định nghĩa trong chương trình nên Web Server xử lý bằng nhánh `else` và trả về lỗi 404.
+
+## 7. Hình ảnh minh chứng
+
+### Ảnh 1: Mã nguồn chương trình
+
+![Mã nguồn Node.js](IMAGES/1-code.png)
+
+### Ảnh 2: Chạy Web Server trong Terminal
+
+![Terminal chạy Node.js](IMAGES/2-terminal.png)
+
+### Ảnh 3: Kết quả trang chủ
+
+![Trang chủ](IMAGES/3-trangchu.png)
+
+### Ảnh 4: Kết quả trang giới thiệu bản thân
+
+![Trang giới thiệu](IMAGES/4-about.png)
+
+### Ảnh 5: Kết quả trang lỗi 404
+
+![Trang lỗi 404](IMAGES/5-404.png)
+
+## 8. Kết luận
+
+Sau khi thực hiện bài tập, đã hoàn thành các chức năng:
+
+- Tạo Web Server bằng Node.js.
+- Sử dụng module HTTP để xử lý yêu cầu từ trình duyệt.
+- Xây dựng trang chủ và trang giới thiệu bản thân.
+- Xử lý các đường dẫn không tồn tại bằng HTTP 404.
+- Chạy và kiểm tra chương trình trên `localhost:3000`.
+- Lưu hình ảnh minh chứng kết quả thực hiện.
+
+**Kết quả:** Hoàn thành Bài 3 – Bài tập 02: Tạo Web Server với Node.js.s
